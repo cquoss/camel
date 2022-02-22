@@ -232,6 +232,9 @@ public class JmsEndpoint extends DefaultEndpoint
             listenerContainer.setSubscriptionName(configuration.getSubscriptionName());
         }
         listenerContainer.setSubscriptionShared(configuration.isSubscriptionShared());
+        if (configuration.getClientId() != null) {
+            listenerContainer.setClientId(configuration.getClientId());
+        }
     }
 
     private void setContainerTaskExecutor(AbstractMessageListenerContainer listenerContainer, Executor executor) {
